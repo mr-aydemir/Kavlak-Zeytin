@@ -1,0 +1,309 @@
+{
+    "products": [
+        {
+            "id": "kavlak-tas-baski-zeytinyagi-3lu-ozel-fiyatli-kampanya",
+            "categoryID": 0,
+            "name": "Kavlak Taş Baskı Zeytinyağı 3lü Özel Fiyatlı Kampanya",
+            "detail": "Taş değirmenlerde ezilerek soğuk sıkım yöntemi ile elde edilen gerçek Taş Baskı Soğuk Sıkım Zeytinyağı En Avantajlı Kampanyası ile yemeklerinize lezzet katacak.",
+            "rate": 5,
+            "price": 599,
+            "code": "460",
+            "images": [
+                "https://kavlak.com.tr/zeytinyaglari/kavlak-tas-baski-soguk-sikim-zeytinyagi-5lt-3-al-2-ode-kampanyasi.jpg"
+            ],
+            "inStock": 500,
+            "indirim": 30
+        },
+        {
+            "id": "kavlak-ilk-hasat-5-litre-2li-ozel-kampanya",
+            "categoryID": 0,
+            "name": "Kavlak İlk Hasat 5 Litre 2li Özel Kampanya",
+            "detail": "Ege bölgesinde yetişen yeşil zeytinlerden soğuk sıkım yöntemi ile elde edilen aromatik ve filtreden geçmeyen şifa niyetine tüketilebilecek eşsiz zeytinyağı!",
+            "rate": 3,
+            "price": 519,
+            "code": "K0022",
+            "images": [
+                "https://kavlak.com.tr/zeytinyaglari/kavlak-ilk-hasat-5-litre-2li-ozel-kampanya.jpg"
+            ],
+            "inStock": 500,
+            "indirim": 39
+        },
+        {
+            "id": "kavlak-5-lt-tas-baski-zeytinyagi-alana-2-kg-jumbo-zeytin-hediye",
+            "categoryID": 0,
+            "name": "Kavlak 5 Lt Taş Baskı Zeytinyağı Alana 2 Kg Jumbo Zeytin Hediye",
+            "detail": "Kavlak 5 Litre Taş Baskı Soğuk Sıkım Zeytinyağı Alana 2 Kg Jumbo Zeytin 10 TL! Üstelik Ücretsiz Kargo ile Kapınıza Teslim!",
+            "rate": 5,
+            "price": 289.90,
+            "code": "K0025",
+            "images": [
+                "https://kavlak.com.tr/zeytinler/kavlak-5-lt-tas-baski-zeytinyagi-alana-2-kg-jumbo-zeytin-ozel-fiyat.jpg"
+            ],
+            "inStock": 500,
+            "indirim": 27
+        },
+        {
+            "id": "avlak-kuru-sele-siyah-zeytin-4-al-3-ode",
+            "categoryID": 1,
+            "name": "Kavlak Kuru Sele Siyah Zeytin 4 Al 3 Öde",
+            "detail": "Kavlak kuru sele siyah zeytin hiçbir kimyasal işleme tabi tutulmadan çevirme ve çuvallama yöntemiyle yalnızca tuz kullanılarak üretilir.",
+            "rate": 0,
+            "price": 199.90,
+            "code": "K0018",
+            "images": [
+                "https://kavlak.com.tr/zeytinler/kavlak-kuru-sele-siyah-zeytin-4-al-3-ode.jpg"
+            ],
+            "inStock": 500,
+            "indirim": 22
+        },
+        {
+            "id": "kavlak-special-gemlik-siyah-zeytin-1-kg-3lu-kampanya",
+            "categoryID": 1,
+            "name": "Kavlak Special Gemlik Siyah Zeytin 1 Kg 3lü Kampanya",
+            "detail": "Kavlak Special Gemlik Siyah Zeytin En Yeni Lezzet ve Üretimiyle birlikte kampanyasıyla sofralarınıza geliyor!",
+            "rate": 5,
+            "price": 164.90,
+            "code": "K0008",
+            "images": [
+                "https://kavlak.com.tr/zeytinler/kavlak-special-gemlik-siyah-zeytin-1-kg-3lu-kampanya.jpg"
+            ],
+            "inStock": 500,
+            "indirim": 15
+        },
+        {
+            "id": "kavlak-turk-kahvesi-100-gr",
+            "categoryID": 2,
+            "name": "Kavlak Türk Kahvesi 100 Gr",
+            "detail": "Kavlak geleneksel öğütülmüş türk kahvesi",
+            "rate": 5,
+            "price": 16.90,
+            "code": "TDR1033",
+            "images": [
+                "https://kavlak.com.tr/sarkuteriler/kavlak-turk-kahvesi-100gr.jpg"
+            ],
+            "inStock": 500,
+            "indirim": 0
+        },
+        {
+            "id": "kavlak-naturel-sizma-2li-5-lt-ozel-fiyatli-kampanya",
+            "categoryID": 0,
+            "name": "Kavlak Naturel Sızma 2li 5 LT Özel Fiyatlı Kampanya",
+            "detail": "Yağ oranı yüksek Gemlik zeytinlerinden, son sistem kontinü zeytinyağı fabrikasında üretilen bu ürün en uygun kampanyasıyla ücretsiz kargo ile kapınızda!",
+            "rate": 5,
+            "price": 389,
+            "code": "K0004",
+            "images": [
+                "https://kavlak.com.tr/zeytinyaglari/kavlak-2li-ozel-fiyat-naturel-sizma-soguk-sikim-zeytinyagi-5lt.jpg"
+            ],
+            "inStock": 500,
+            "indirim": 0
+        },
+        {
+            "id": "kavlak-ev-yapimi-kuskus",
+            "categoryID": 3,
+            "name": "Kavlak Ev Yapımı Kuskus",
+            "detail": "Doğal ev ortamında, Un, su, tuz, yumurta, süt ve bulgurun yoğurulmasıyla elde edilmektedir.",
+            "rate": 5,
+            "price": 22.90,
+            "code": "056",
+            "images": [
+                "https://kavlak.com.tr/ev-yapimlari/kavlak-ev-yapimi-kuskus.jpg"
+            ],
+            "inStock": 500,
+            "indirim": 0
+        },
+        {
+            "id": "kavlak-ev-yapimi-dugun-corbasi",
+            "categoryID": 3,
+            "name": "Kavlak Ev Yapımı Düğün Çorbası",
+            "detail": "Kavlak ev yapımı düğün çorbası, doğal ev ortamında, un, su, tuz, yumurtanın yoğurulmasıyla elde edilmektedir.",
+            "rate": 5,
+            "price": 22.90,
+            "code": "153",
+            "images": [
+                "https://kavlak.com.tr/ev-yapimlari/kavlak-ev-yapimi-dugun-corbasi.jpg"
+            ],
+            "inStock": 500,
+            "indirim": 0
+        },
+        {
+            "id": "kavlak-ev-yapimi-eriste",
+            "categoryID": 3,
+            "name": "Kavlak Ev Yapımı Erişte",
+            "detail": "Kavlak ev yapımı erişte, doğal ev ortamında, Un, su, tuz, yumurtanın yoğurulmasıyla elde edilmektedir.",
+            "rate": 2,
+            "price": 22.90,
+            "code": "198",
+            "images": [
+                "https://kavlak.com.tr/ev-yapimlari/ev-yapimi-eriste.jpg"
+            ],
+            "inStock": 500,
+            "indirim": 0
+        },
+        {
+            "id": "kavlak-sira-1-lt",
+            "categoryID": 2,
+            "name": "Kavlak Şıra 1 Lt",
+            "detail": "Şıra, Türk mutfağında kısmen fermante edilmiş üzüm veya elma suyundan yapılan alkolsüz bir içecektir.",
+            "rate": 5,
+            "price": 22.90,
+            "code": "TDR586",
+            "images": [
+                "https://kavlak.com.tr/sarkuteriler/kavlak-sira-1lt.jpg"
+            ],
+            "inStock": 500,
+            "indirim": 0
+        }
+    ],
+    "categories": [
+        {
+            "id": 0,
+            "name": "ZeytinYagi"
+        },
+        {
+            "id": 1,
+            "name": "SiyahZeytin"
+        },
+        {
+            "id": 2,
+            "name": "icecek"
+        },
+        {
+            "id": 3,
+            "name": "EvYapimi"
+        },
+        {
+            "id": 4,
+            "name": "YesilZeytin"
+        },
+        {
+            "id": 5,
+            "name": "Peynir"
+        },
+        {
+            "id": 6,
+            "name": "Reçel"
+        },
+        {
+            "id": 7,
+            "name": "Diger"
+        },
+        {
+            "id": 8,
+            "name": "Kozmetik"
+        },
+        {
+            "id": 9,
+            "name": "Tursular"
+        },
+        {
+            "id": 10,
+            "name": "Sekerleme"
+        },
+        {
+            "id": 11,
+            "name": "Kuruyemis"
+        }
+    ],
+    "showRoomProducts": [
+        {
+            "productID": "kavlak-special-gemlik-siyah-zeytin-1-kg-3lu-kampanya",
+            "picture": "https://kavlak.com.tr/images/R1.jpg",
+            "link": "SiyahZeytin/kavlak-special-gemlik-siyah-zeytin-1-kg-3lu-kampanya"
+        },
+        {
+            "productID": "kavlak-turk-kahvesi-100-gr",
+            "picture": "https://kavlak.com.tr/images/R2.jpg",
+            "link": "icecek/kavlak-turk-kahvesi-100-gr"
+        },
+        {
+            "productID": "kavlak-naturel-sizma-2li-5-lt-ozel-fiyatli-kampanya",
+            "picture": "https://kavlak.com.tr/images/R3.jpg",
+            "link": "ZeytinYagi/kavlak-naturel-sizma-2li-5-lt-ozel-fiyatli-kampanya"
+        }
+    ],
+    "sepetteIndirimliler": [
+        {
+            "id": "kavlak-ev-yapimi-kuskus"
+        },
+        {
+            "id": "kavlak-ev-yapimi-dugun-corbasi"
+        },
+        {
+            "id": "kavlak-ev-yapimi-eriste"
+        },
+        {
+            "id": "kavlak-sira-1-lt"
+        }
+    ],
+    "categoriesBarItems": [
+        {
+            "id": 0,
+            "name": "Zeytin",
+            "subCategories": [
+                {
+                    "id": 1
+                },
+                {
+                    "id": 4
+                }
+            ],
+            "icon": "https://kavlak.com.tr/img/icon/zeytin.png"
+        },
+        {
+            "id": 1,
+            "name": "ZeytinYağı",
+            "categoryID": 0,
+            "icon": "https://kavlak.com.tr/img/icon/zeytinyagii.png"
+        },
+        {
+            "id": 2,
+            "name": "Şarküteri",
+            "subCategories": [
+                {
+                    "id": 5
+                },
+                {
+                    "id": 6
+                },
+                {
+                    "id": 2
+                },
+                {
+                    "id": 7
+                }
+            ],
+            "icon": "https://kavlak.com.tr/img/icon/peynr.png"
+        },
+        {
+            "id": 3,
+            "name": "Turşular",
+            "categoryID": 9,
+            "icon": "https://kavlak.com.tr/img/icon/tursucuk.png"
+        },
+        {
+            "id": 4,
+            "name": "Kozmetik",
+            "categoryID": 8,
+            "icon": "https://kavlak.com.tr/img/icon/cosmetic.png"
+        },
+        {
+            "id": 5,
+            "name": "Ev Yapımı",
+            "categoryID": 3,
+            "icon": "https://kavlak.com.tr/img/icon/ev_yapimii.png"
+        },
+        {
+            "id": 6,
+            "name": "Şekerleme",
+            "categoryID":10,
+            "icon": "https://kavlak.com.tr/img/icon/seker.png"
+        },
+        {
+            "id": 7,
+            "categoryID":11,
+            "name": "Kuruyemiş",
+            "icon":"https://kavlak.com.tr/img/icon/kuruyemis.png"
+        }
+    ]
+}

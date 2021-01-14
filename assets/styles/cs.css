@@ -1,0 +1,223 @@
+﻿.hritem {
+    top: -50px;
+    height: 1.8px;
+    position: relative;
+    background-image: url(https://kavlak.com.tr/img/icon/hritem.png);
+}
+
+@media only screen and (max-width:992px) {
+    #ustabsborder {
+        width: 100%;
+    }
+
+    #ustabsborder {
+        width: 100%;
+    }
+
+    #ustabsborder {
+        width: 100%;
+    }
+
+    .hritem {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+div .starx1 {
+    font-size: 15px;
+}
+
+@media only screen and (max-width:768px) {
+    #faturaheaderitem i {
+        font-size: 24px;
+    }
+
+    #faturaheaderitem b {
+        font-size: 14px;
+    }
+
+    .closeSifreYenile {
+        font-size: 12px;
+    }
+
+    .Fatura-TeslimatAdresi-Kurumsal i {
+        font-size: 16px;
+    }
+
+    .Fatura-TeslimatAdresi-Kurumsal span {
+        font-size: 16px;
+    }
+
+    #faturacheckbox label {
+        font-size: 14px;
+        text-align: left;
+    }
+
+    #faturabireyselx i {
+        font-size: 24px;
+    }
+
+    #faturabireyselx b {
+        font-size: 14px;
+    }
+
+    .closeSifreYenile {
+        font-size: 12px;
+    }
+
+    .Fatura-TeslimatAdresi i {
+        font-size: 16px;
+    }
+
+    .Fatura-TeslimatAdresi span {
+        font-size: 16px;
+    }
+
+    #bireyselfatr label {
+        font-size: 14px;
+        text-align: left;
+    }
+
+    #modalLoginForm button {
+        font-size: 15px !important;
+    }
+
+    .respobtn {
+        font-size: 18px !important;
+    }
+
+    #lblbeniunutma {
+        font-size: 12px !important;
+    }
+
+    .sifremiUnuttum {
+        font-size: 12px !important;
+        margin-top: 7px;
+    }
+
+    #logingirisyap {
+        font-size: 25px;
+    }
+
+    #modalUyeOlForm button {
+        font-size: 15px !important;
+    }
+
+    #kavlakuyeOlun {
+        font-size: 22px !important;
+    }
+
+    #uyeolImg {
+        margin-left: -45px !important;
+    }
+
+    #zatenuyemisinizz {
+        display: none;
+    }
+
+    #girisyapp button {
+        font-size: 12px !important;
+        width: 100%;
+        text-align: center;
+        margin-right: 32px;
+    }
+
+    .alltext {
+        text-align: left !important;
+        font-size: 15px !important;
+    }
+
+    #applemobil {
+        width: 180px !important;
+    }
+
+    #mobiluygulamaindirfooter {
+        text-align: left;
+        font-size: 14px;
+    }
+
+    #toplanutuncenterodemeekrani {
+        text-align: center;
+    }
+
+    .odemebilgisisepetegit {
+        font-size: 10px !important;
+    }
+
+    #guvenliodemeresimkaldir {
+        display: none;
+        visibility: hidden;
+    }
+
+    #odemefontsetting div {
+        text-align: left !important;
+    }
+
+ 
+
+    .fovoritext-gizle {
+        display: none;
+    }
+}
+
+#adres1 {
+    border-bottom: 0;
+    box-shadow: 0 0;
+}
+
+#adres2 {
+    border-bottom: 0;
+    border-top: 0;
+    box-shadow: 0 0;
+}
+
+#adres3 {
+    border-top: 0;
+    box-shadow: 0 0;
+}
+
+#adres1:hover {
+    border-bottom: 0;
+    box-shadow: 0 0;
+}
+
+#adres2:hover {
+    border-bottom: 0;
+    box-shadow: 0 0;
+    border-top: 0;
+}
+
+#adres3:hover {
+    border-top: 0;
+    box-shadow: 0 0;
+}
+
+#summary {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+    #summary p.collapse:not(.show) {
+        height: 42px !important;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    #summary p.collapsing {
+        min-height: 42px !important;
+    }
+
+    #summary a.collapsed:after {
+        content: '+ Devamını Oku...';
+    }
+
+.ekko-lightbox-nav-overlay {
+    display: none;
+}
+
+#summary a:not(.collapsed):after {
+    content: '-  Gizle';
+}

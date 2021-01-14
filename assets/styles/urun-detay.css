@@ -1,0 +1,553 @@
+wid .preview {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+@media screen and (max-width: 996px) {
+  .preview {
+    margin-bottom: 20px;
+  }
+}
+.preview-pic {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+.preview-thumbnail.nav-tabs {
+  border: none;
+  display: block;
+}
+.preview-thumbnail.nav-tabs li img {
+  max-width: 100%;
+  width: 20%;
+}
+.preview-thumbnail.nav-tabs li a {
+  padding: 0;
+  margin: 0;
+}
+.tab-content {
+  overflow: hidden;
+}
+.tab-content img {
+  width: 95%;
+  -webkit-animation-name: opacity;
+  animation-name: opacity;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+}
+.card {
+  background: #fff;
+  padding: 3em;
+  line-height: 1.5em;
+  box-shadow: 0 0;
+  border: 0;
+}
+@media screen and (min-width: 997px) {
+  .wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+.details {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.colors {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+.colors,
+.price,
+.product-title,
+.sizes {
+  text-transform: UPPERCASE;
+  font-weight: 700;
+}
+.checked,
+.price span {
+  color: #ff9f1a;
+}
+.price,
+.product-description,
+.product-title,
+.rating,
+.sizes,
+.vote {
+  margin-bottom: 15px;
+}
+.product-title {
+  margin-top: 0;
+}
+.size {
+  margin-right: 10px;
+}
+.size:first-of-type {
+  margin-left: 40px;
+}
+.color {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  height: 2em;
+  width: 2em;
+  border-radius: 2px;
+}
+.color:first-of-type {
+  margin-left: 20px;
+}
+.add-to-cart,
+.like {
+  background: #ff9f1a;
+  padding: 1.2em 1.5em;
+  border: none;
+  text-transform: UPPERCASE;
+  font-weight: 700;
+  color: #fff;
+  -webkit-transition: background 0.3s ease;
+  transition: background 0.3s ease;
+}
+.add-to-cart:hover,
+.like:hover {
+  background: #b36800;
+  color: #fff;
+}
+.not-available {
+  text-align: center;
+  line-height: 2em;
+}
+.not-available:before {
+  font-family: fontawesome;
+  content: '\f00d';
+  color: #fff;
+}
+.orange {
+  background: #ff9f1a;
+}
+.green {
+  background: #85ad00;
+}
+.blue {
+  background: #0076ad;
+}
+.tooltip-inner {
+  padding: 1.3em;
+}
+@-webkit-keyframes opacity {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(3);
+    transform: scale(3);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes opacity {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(3);
+    transform: scale(3);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+.text-indririm {
+  font-size: 12px;
+}
+@media only screen and (max-width: 1366px) {
+  a .iconkalp {
+    width: 30px;
+  }
+  a .iconalarm {
+    width: 30px;
+  }
+}
+@media only screen and (max-width: 1400px) {
+  .textyuzde {
+    font-size: 17px;
+  }
+  .text-indririm {
+    font-size: 10px;
+    padding-left: 10px;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .textyuzde {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+  }
+  .text-indririm {
+    margin: 0;
+    padding: 0;
+    font-size: 9px;
+  }
+}
+.btnhemenal {
+  font-size: 18px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+.konusma-balonu {
+  background-color: red;
+  float: left;
+  height: 40px;
+  font-size: 20px;
+  position: relative;
+  color: #fff;
+  float: right;
+}
+.konusma-balonu:after {
+  content: '';
+  position: absolute;
+  left: -36.5px;
+  top: 3px;
+  transform: rotate(270deg);
+  border-style: solid;
+  border-width: 15px 20px 20px 20px;
+  border-color: transparent transparent red transparent;
+}
+.mobilkazanc {
+  right: 60px;
+  font-size: 14px;
+}
+@media only screen and (max-width: 1366px) {
+  .konusma-balonu {
+    height: 35px;
+  }
+  .konusma-balonu:after {
+    border-width: 10px 18px 18px 18px;
+    left: -32px;
+  }
+  .mobilkazanc {
+    right: 80px;
+    font-size: 5px !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1366px) {
+  .mobilkazanc small {
+    font-size: 8px;
+    margin-left: 10%;
+  }
+}
+@media only screen and (max-width: 1366px) {
+  .abone-ol {
+    font-size: 10px;
+  }
+  .detay-kargo {
+    font-size: 14px;
+  }
+  .mobilkazanc {
+    font-size: 7px;
+    font-weight: 600;
+    line-height: 10px;
+  }
+}
+@media (min-width: 1400px) and (max-width: 1920px) {
+  .urunstok-durum small {
+    font-size: 14px;
+  }
+  .abone-ol {
+    font-size: 16px;
+    font-weight: 100;
+  }
+  .mobilkazanc {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 1900px) {
+  .urun-fiyat-kdv {
+    font-size: 20px;
+  }
+  .urun-fiyat-kdv img {
+    width: 15px;
+  }
+}
+.sliderborder {
+  border: 1px solid #ddd;
+}
+.hemenal {
+  border: 0;
+  background: #02a54a;
+  border-radius: 10px;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+@media only screen and (max-width: 992px) {
+  #watsappsparisdes {
+    width: 120px;
+  }
+  .detay-kargo {
+    font-size: 12px;
+  }
+  .teslimattextx {
+    font-size: 12px;
+  }
+  .indirimtext {
+    position: absolute;
+  }
+  .urunstok-durum small {
+    font-size: 13px;
+  }
+}
+#hemen-al .btn-al {
+  border-radius: 10px;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  padding-right: 25px;
+  padding-left: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #fff;
+  font-weight: 800;
+}
+#hemen-al .btn-sepeteEkle {
+  border-radius: 10px;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  padding-right: 25px;
+  padding-left: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #000;
+  font-weight: 800;
+  background: 0 0;
+  border: 1px solid #02a54a;
+}
+@media only screen and (max-width: 992px) {
+  #marginleft20 {
+    margin-left: 0 !important;
+  }
+  #hemen-al .btn-al {
+    margin: 0;
+    padding: 5px;
+    font-size: 12px;
+  }
+  #hemen-al .btn-sepeteEkle {
+    margin: 0;
+    padding: 5px;
+    font-size: 12px;
+  }
+  .mobilkazanc {
+    font-size: 12px;
+    float: left;
+    margin-top: 30px;
+  }
+  .text-indririm {
+    font-size: 8px;
+    margin: 0;
+    padding: 0;
+  }
+  .textyuzde {
+    font-size: 15px;
+  }
+  .konusma-balonu {
+    background-color: red;
+    float: left;
+    height: 40px;
+    font-size: 20px;
+    width: 80px;
+    position: relative;
+    color: #fff;
+    float: right;
+  }
+  .konusma-balonu:after {
+    margin: 0;
+    padding: 0;
+    content: '';
+    position: absolute;
+    left: -36.5px;
+    top: 3px;
+    transform: rotate(270deg);
+    border-style: solid;
+    border-width: 15px 20px 20px 20px;
+    border-color: transparent transparent red transparent;
+  }
+  #myTab li {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+}
+input[type='number'].mod::-webkit-inner-spin-button,
+input[type='number'].mod::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  background: #fff
+    url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAKUlEQVQYlWNgwAT/sYhhKPiPT+F/LJgEsHv37v+EMGkmkuImoh2NoQAANlcun/q4OoYAAAAASUVORK5CYII=)
+    no-repeat center center;
+  width: 2em;
+  border-left: 1px solid #bbb;
+  opacity: 0.9;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #02a54a;
+  z-index: 888;
+}
+.number-wrapper {
+  position: relative;
+}
+.number-wrapper:after,
+.number-wrapper:before {
+  position: absolute;
+  right: 2px;
+  width: 1.6em;
+  height: 0.9em;
+  font-size: 13px;
+  pointer-events: none;
+  z-index: 888;
+}
+.number-wrapper:after {
+  font-family: Font Awesome;
+  color: #fff;
+  content: '\25B2';
+  margin-top: -38px;
+  z-index: 888;
+  font-size: 12px;
+}
+.number-wrapper:before {
+  color: #fff;
+  content: '\25BC';
+  margin-bottom: 18px;
+  bottom: -0.5em;
+  z-index: 999;
+  font-size: 12px;
+}
+#ustabsborder .active {
+  border-top: 4px solid green;
+  background: #fff;
+  color: #02a54a;
+}
+#ustabsborder a {
+  color: #000;
+}
+#ustabsborder i {
+  color: gray;
+}
+#ustabsborder .active i {
+  color: green;
+}
+#ustabsborder {
+  color: #000;
+  background: rgba(163, 163, 163, 0.2);
+}
+.bex {
+  background: #02a54a;
+  color: #fff;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+.sagslider figure {
+  box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2), 0 2px 6px 0 rgba(0, 0, 0, 0.25);
+  border: 0;
+}
+@media (min-width: 992px) and (max-width: 1366px) {
+  .bex {
+    font-size: 12px;
+  }
+  small #cardtitlbaslik {
+    line-height: 0.1em;
+    font-size: 8px;
+    font-weight: 500;
+    line-height: 0.078em;
+    font-family: helvatica;
+    margin: 0;
+    padding: 0;
+  }
+  #resimslidersag img {
+    width: 10px;
+  }
+  #fiyatsagslider {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+  }
+  .btnsepeteekle img {
+    width: 70px;
+  }
+  .konusma-balonu span {
+    padding-right: 8px;
+  }
+}
+#resimslidersag img {
+  width: 90px;
+}
+@media only screen and (max-width: 1366px) {
+  .bizitakipedin {
+    font-size: 20px;
+  }
+  .iconlar {
+    width: 40px;
+  }
+  .bizitakipedin {
+    font-size: 15px;
+  }
+  .googleplay {
+    height: 50px;
+  }
+  .e-bulten-uyeligi {
+    font-size: 14px;
+  }
+  .e-bultenbtn {
+    height: 30px;
+    font-size: 12px;
+  }
+  .e-input {
+    height: 30px;
+    font-size: 12px;
+  }
+  .credi-cart {
+    height: 60px;
+  }
+  .alltext {
+    font-size: 12px;
+  }
+}
+.tempforSize {
+  display: inline-block !important;
+}
+@media (min-width: 992px) {
+  .MiniMobilMnu {
+    display: none;
+  }
+}
+.bg-gray {
+  background-color: #ddd;
+}
+body {
+  overflow: -moz-scrollbars-vertical;
+  overflow-x: hidden;
+  overflow: -moz-scrollbars-vertical;
+}
