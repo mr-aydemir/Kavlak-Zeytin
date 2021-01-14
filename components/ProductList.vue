@@ -7,7 +7,7 @@
       <!-- /.container -->
       <div class="row">
         <!-- .row -->
-        <ProductButton v-for="product in products" :key="product.id" :productID="product.id" />
+        <ProductButton v-for="product in getFilteredProductList" :key="product.id" :productID="product.id" />
       </div>
       <!-- /.row -->
     </div>
@@ -22,10 +22,25 @@ export default {
   components: {
     ProductButton,
   },
+  props: {
+    categoryID: {
+      type: String,
+      required: true,
+    },
+  },
   computed: {
     ...mapState({
       products: (state) => state.products,
     }),
+    ...mapGetters({
+      getProductsWithCategory: 'getProductsWithCategory',
+    }),
+    getFilteredProductList(){
+      if (this.categoryID) {
+        return this.getProductsWithCategory(this.categoryID)
+      }
+      return this.products;
+    }
   },
   methods: {
     ...mapActions({

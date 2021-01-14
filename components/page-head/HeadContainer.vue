@@ -173,7 +173,62 @@
           >
             <!-- Navbar links -->
             <ul class="nav navbar-nav nav-flex-icons ml-auto solmenusett">
-              <li class="nav-item p0 m0" style="z-index: 997">
+              <!-- Hesabım -->
+              <li
+                id="navbar-static-tools"
+                class="nav-item dropdown"
+                :class="{ show: openDropdown }"
+                @click="openDropdown = !openDropdown"
+                @blur="openDropdown = false"
+                v-show="isLoggedIn"
+              >
+                <a
+                  class="nav-link"
+                  id="navbar-tools"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="true"
+                >
+                  <span class="text-dark">Hesabım</span>
+                </a>
+                <div
+                  class="dropdown-menu dropdown-menu-right"
+                  :class="{ show: openDropdown }"
+                  aria-labelledby="navbar-tools"
+                  style="width: 190px; padding: 0px"
+                >
+                  <div class="list-group">
+                    <a id="ctl00_lnk_uye_girisi">Sn. {{ user.displayName }}</a>
+                    <a id="ctl00_lnk_uye_girisi">id. {{ user.uid }}</a>
+                    <a
+                      href="/hesabim"
+                      class="list-group-item list-group-item-action"
+                      >Bilgilerimi Güncelle</a
+                    >
+                    <a
+                      href="/siparislerim"
+                      class="list-group-item list-group-item-action"
+                      >Siparişlerim</a
+                    >
+                    <a
+                      href="/favorilerim"
+                      class="list-group-item list-group-item-action"
+                      >Favorilerim</a
+                    >
+                    <div
+                      @click="logout"
+                      class="list-group-item list-group-item-action"
+                    >
+                      Çıkış
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li
+                class="nav-item p0 m0"
+                style="z-index: 997"
+                v-show="!isLoggedIn"
+              >
                 <!-- Giriş yap / Üye Ol -->
                 <nuxt-link
                   :to="{
@@ -191,7 +246,11 @@
                 </nuxt-link>
               </li>
               <!-- Dropdown -->
-              <li class="nav-item p0 m0" style="z-index: 997">
+              <li
+                class="nav-item p0 m0"
+                style="z-index: 997"
+                v-show="!isLoggedIn"
+              >
                 <!-- Giriş yap / Üye Ol -->
                 <nuxt-link
                   :to="{
@@ -211,7 +270,10 @@
               <!-- Giriş yap / Üye Ol -->
 
               <li class="nav-item sepetborder pr-2">
-                <img src="https://kavlak.com.tr/img/cibik.png" class="img-fluid" />
+                <img
+                  src="https://kavlak.com.tr/img/cibik.png"
+                  class="img-fluid"
+                />
               </li>
               <li class="nav-item pl-2">
                 <nuxt-link
@@ -223,7 +285,7 @@
                     id="kasaurunsayisi"
                     style="z-index: 999"
                   >
-                    0
+                    {{ inCart.length ? inCart.length : 0 }}
                   </span></nuxt-link
                 >
               </li>
@@ -274,7 +336,9 @@
           <div
             class="float-right text-white tlcover pl-5 pr-3 font-weight-bold"
           >
-            <span class="h6"> 0 TL</span>
+            <span class="h6">
+              {{ inCart.length&&products.length ? formatPrice(getCartTotalCost()) : 0 }} TL</span
+            >
           </div>
         </nuxt-link>
       </div>
@@ -282,3 +346,45 @@
     <!--ROW-->
   </div>
 </template>
+<script>
+import firebase from 'firebase'
+import { mapActions, mapState, mapGetters } from 'vuex'
+export default {
+  data() {
+    return {
+      openDropdown: false,
+      isLoggedIn: false,
+      user: {},
+    }
+  },
+  created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.isLoggedIn = true
+        this.user = user
+        user.phoneNumber
+      } else this.isLoggedIn = false
+    })
+    this.fetchCartItems()
+  },
+  methods: {
+    ...mapActions({
+      logout: 'logout',
+      fetchCartItems: 'fetchCartItems',
+    }),
+  },
+  computed: {
+    ...mapState({
+      inCart: (state) => state.inCart,
+      products: (state) => state.products,
+    }),
+    ...mapGetters({
+      getCartTotalCost: 'getCartTotalCost',
+      formatPrice: 'formatPrice',
+    }),
+    productLength() {
+      return this.products != null ? this.products.length : -1
+    },
+  },
+}
+</script>

@@ -55,6 +55,7 @@
             src="https://kavlak.com.tr/img/button/sepeteekle.png"
             class="img-fluid pb-3 w-50 sepeteekleimgbtn"
             style="border-width: 0px; position: static; border: 0px"
+              @click="AddToBasket(product.id)"
           />
         </div>
       </figure>
@@ -75,7 +76,13 @@ export default {
   methods: {
     ...mapActions({
       fetchProducts: 'fetchProducts',
+      sepeteEkle: 'sepeteEkle',
     }),
+    AddToBasket(id) {
+      var pid = id
+      var count = 1
+      this.sepeteEkle({ pid, count })
+    },
   },
   created() {
     this.fetchProducts()

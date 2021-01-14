@@ -185,6 +185,8 @@
               :id="'navedit' + item.name"
               v-for="(item,index) in categoriesBarItems"
               :key="item.id"
+                @mouseenter="OpenDropdown($event,index)"
+                @mouseleave="CloseDropdown"
             >
               <a
                 class="nav-link"
@@ -192,8 +194,6 @@
                 :class="{ 'dropdown-toggle': item.subCategories }"
                 aria-haspopup="true"
                 aria-expanded="true"
-                @mouseenter="OpenDropdown"
-                @mouseleave="CloseDropdown"
               >
                 <div class="row">
                   <div class="col-lg-3">
@@ -279,12 +279,12 @@ export default {
     }),
     OpenDropdown(event,index) {
       var Target = event.target
-      Target.parentElement.classList.add('show')
+      Target.classList.add('show')
       this.mouseOveredIndex=index
     },
     CloseDropdown(event) {
       var Target = event.target
-      Target.parentElement.classList.remove('show')
+      Target.classList.remove('show')
       this.mouseOveredIndex=-1
     },
     parentContainsShow(event) {

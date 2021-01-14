@@ -19,6 +19,14 @@ export default {
     }),
   },
   methods: {
+    ...mapActions({
+      sepeteEkle: 'sepeteEkle',
+    }),
+    AddToBasket(id) {
+      var pid = id
+      var count = 1
+      this.sepeteEkle({ pid, count })
+    },
     indexDegisimi() {
       setInterval(
         function () {
@@ -124,6 +132,7 @@ export default {
               src="https://kavlak.com.tr/img/button/sepeteekle.png"
               class="img-fluid pb-3"
               style="width: 110px; border-width: 0px; position: static"
+              @click="AddToBasket(products[(index - 1) * 2].id)"
             /><br />
             <!-- Even Numbers -->
             <nuxt-link
@@ -174,6 +183,7 @@ export default {
               src="https://kavlak.com.tr/img/button/sepeteekle.png"
               class="img-fluid pb-3"
               style="width: 110px; border-width: 0px; position: static"
+              @click="AddToBasket(products[(index - 1) * 2 + 1].id)"
             /><br />
           </figure>
         </div>

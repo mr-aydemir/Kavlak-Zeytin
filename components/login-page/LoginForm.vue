@@ -34,6 +34,7 @@
                 class="form-control py-4 logininputsize"
                 placeholder=" E-Posta Adresi"
                 required=""
+                v-model.lazy="email"
               />
             </div>
 
@@ -51,6 +52,7 @@
                 class="form-control py-4 logininputsize passs"
                 placeholder=" Şifre"
                 required=""
+                v-model.lazy="password"
               />
             </div>
           </div>
@@ -100,7 +102,7 @@
               value="Giriş Yap"
               id="ctl00_ContentPlaceHolder1_btn_uye_girisi"
               class="btnLogin btn btn02A54A text-center btnwidth90 py-2 text-capitalize"
-              style="font-size: 35px; font-weight: 600"
+              style="font-size: 35px; font-weight: 600" @click="login({ email, password })"
             /><br />
             <!-- -->
           </div>
@@ -138,7 +140,26 @@
   </div>
 </template>
 <script>
+import firebase from 'firebase'
+import { mapActions } from 'vuex'
 export default {
-    
+  data() {
+    return {
+      email: '',
+      password: '',
+    }
+  },
+  created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.$router.push('/') //Anasayfaya yönlendiriyor giriş yapılmışsa
+      }
+    })
+  },
+  methods: {
+    ...mapActions({
+      login: 'login'
+    }),
+  },
 }
 </script>

@@ -43,6 +43,7 @@
               class="form-control mb-3 py-3"
               placeholder="Ad *"
               required=""
+              v-model.lazy="name"
             />
           </div>
           <div class="col-lg-12">
@@ -55,6 +56,7 @@
               class="form-control mb-3 py-3"
               placeholder="Soyad *"
               required=""
+              v-model.lazy="surname"
             />
           </div>
           <div class="col-lg-12">
@@ -67,6 +69,7 @@
               class="form-control mb-3 py-3"
               placeholder="E-Posta Adresi *"
               required=""
+              v-model.lazy="email"
             />
           </div>
           <div class="col-lg-12">
@@ -79,6 +82,7 @@
               class="form-control mb-3 py-3"
               placeholder="Şifre *"
               required=""
+              v-model.lazy="password"
             />
           </div>
           <div class="col-lg-12">
@@ -93,6 +97,7 @@
               max="14"
               min="6"
               required=""
+              v-model.lazy="password2"
             />
           </div>
           <div class="col-lg-12">
@@ -109,6 +114,7 @@
               onkeydown="sifiriKaldir()"
               required=""
               autocomplete="off"
+              v-model.lazy="phone"
             />
           </div>
 
@@ -119,8 +125,8 @@
                   id="ctl00_ContentPlaceHolder1_RadErkek"
                   type="radio"
                   name="ctl00$ContentPlaceHolder1$cinsiyet"
-                  value="RadErkek"
-                  checked="checked"
+                  :checked="gender == 0"
+                  @click="gender = 0"
                 /><label for="ctl00_ContentPlaceHolder1_RadErkek">Erkek</label>
               </div>
             </div>
@@ -132,7 +138,8 @@
                   id="ctl00_ContentPlaceHolder1_RadKadin"
                   type="radio"
                   name="ctl00$ContentPlaceHolder1$cinsiyet"
-                  value="RadKadin"
+                  :value="gender == 1"
+                  @click="gender = 1"
                 /><label for="ctl00_ContentPlaceHolder1_RadKadin">Kadın</label>
               </div>
             </div>
@@ -155,6 +162,7 @@
                   id="ctl00_ContentPlaceHolder1_ChkSozlesme"
                   type="checkbox"
                   name="ctl00$ContentPlaceHolder1$ChkSozlesme"
+                  v-model="sozlesmeOnayi"
                   checked="checked"
                 /><!--BURAYA TASIDIM-->
                 <small class="color02A54A">Üyelik Sözleşmesi </small>şartlarını
@@ -174,6 +182,7 @@
                   type="checkbox"
                   name="ctl00$ContentPlaceHolder1$ChkIzin"
                   checked="checked"
+                  v-model="tanitimOnayi"
                 />
                 Tarafıma pazarlama ve tanıtım Amaçlı iletişime geçilmesine
               </label>
@@ -220,6 +229,17 @@
               class="btnblack btn text-center btnwidth90 py-3 waves-effect Helvatica Kbtn size35"
               onmousedown="okey()"
               style="font-weight: 600"
+              v-on:click="
+                register({
+                  email: email,
+                  password: password,
+                  name: name + ' ' + surname,
+                  phone: phone,
+                  gender: gender,
+                  tanitimOnayi: tanitimOnayi,
+                  sozlesmeOnayi: sozlesmeOnayi,
+                })
+              "
             />
           </div>
         </div>
@@ -255,3 +275,37 @@
     </div>
   </div>
 </template>
+<script>
+import firebase from 'firebase'
+import { mapActions } from 'vuex'
+export default {
+  created() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.isAlreadyLogged = true
+        this.$router.push('/') //Anasayfaya yönlendiriyor giriş yapılmışsa
+      } else this.isAlreadyLogged = false
+    })
+  },
+  data() {
+    return {
+      isAlreadyLogged: false,
+      email: '',
+      password: '',
+      password2: '',
+      name: '',
+      surname: '',
+      phone: '',
+      showPassword: true,
+      gender: 0,
+      sozlesmeOnayi: false,
+      tanitimOnayi: false,
+    }
+  },
+  methods: {
+    ...mapActions({
+      register: 'register'
+    }),
+  },
+}
+</script>

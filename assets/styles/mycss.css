@@ -1770,3 +1770,10 @@ input[type='number'] {
     text-align: center;
   }
 }
+.deneme {
+  width: 600px;
+  height: 300px;
+  padding: 20px;
+  position: relative;
+  margin: auto;
+}

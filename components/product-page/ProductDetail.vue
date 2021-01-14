@@ -152,6 +152,7 @@
                     value="1"
                     onkeydown="return (!(event.keyCode>=65 &amp;&amp; event.keyCode<=90 ) &amp;&amp; event.keyCode!=32);"
                     style="width: 58px"
+                    v-model="count"
                   />
                 </div>
               </div>
@@ -238,6 +239,7 @@
                   value="Sepete Ekle"
                   id="ctl00_ContentPlaceHolder1_Button1"
                   class="btn-sepeteEkle urunBtnSEkle"
+                  @click="AddToBasket()"
                 />
                 <a
                   ><input
@@ -303,6 +305,7 @@ export default {
     return {
       imageIndex: 0,
       dt: moment(moment(), 'YYYY-MM-DD HH:mm:ss'),
+      count:1
     }
   },
   mounted() {
@@ -314,6 +317,16 @@ export default {
       getCategoryWithId: 'getCategoryWithId',
       formatPrice: 'formatPrice',
     }),
+  },
+  methods: {
+    ...mapActions({
+      sepeteEkle: 'sepeteEkle',
+    }),
+    AddToBasket() {
+      var pid = this.productID
+      var count = this.count
+      this.sepeteEkle({ pid, count })
+    },
   },
 }
 </script>
