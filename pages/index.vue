@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ProductList />
+    <ProductList :categoryID="''"/>
   </div>
 </template>
 

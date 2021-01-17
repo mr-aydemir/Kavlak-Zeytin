@@ -274,9 +274,6 @@ export default {
     }
   },
   methods: {
-    ...mapActions({
-      fetchCategoriesBarItems: 'fetchCategoriesBarItems',
-    }),
     OpenDropdown(event,index) {
       var Target = event.target
       Target.classList.add('show')
@@ -292,9 +289,6 @@ export default {
       console.log(Target.parentElement.classList)
       return Target.parentElement.classList.contains('show')==true
     },
-  },
-  created() {
-    this.fetchCategoriesBarItems()
   },
   computed: {
     ...mapState({

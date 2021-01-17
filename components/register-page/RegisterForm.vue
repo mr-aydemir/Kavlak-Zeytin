@@ -201,7 +201,7 @@
           </div>
         </div>
         <!--sözleşme  bitiş-->
-
+        <!-- 
         <style>
           @media only screen and (max-width: 992px) {
             .Kbtn {
@@ -211,7 +211,7 @@
               padding-bottom: 14px;
             }
           }
-        </style>
+        </style> -->
 
         <div class="col-lg-12 mt-5 pt-2">
           <!--UYE OL btn  başla-->
@@ -221,32 +221,17 @@
               id="ctl00_ContentPlaceHolder1_LblDurum"
               style="color: Red"
             ></span>
-            <input
-              type="submit"
-              name="ctl00$ContentPlaceHolder1$BtnUyeOl"
-              value="ÜYE OL"
-              id="ctl00_ContentPlaceHolder1_BtnUyeOl"
-              class="btnblack btn text-center btnwidth90 py-3 waves-effect Helvatica Kbtn size35"
-              onmousedown="okey()"
+            <button
+              class=" Kbtn btnblack btn text-center btnwidth90 py-3 waves-effect Helvatica size35"
               style="font-weight: 600"
-              v-on:click="
-                register({
-                  email: email,
-                  password: password,
-                  name: name + ' ' + surname,
-                  phone: phone,
-                  gender: gender,
-                  tanitimOnayi: tanitimOnayi,
-                  sozlesmeOnayi: sozlesmeOnayi,
-                })
-              "
-            />
+              @click="kaydol()"
+            >ÜYE OL</button>
           </div>
         </div>
         <!--UYE OL btn bitiş-->
       </div>
       <!--"modal-body başla-->
-
+      <!-- 
       <style>
         @media only screen and (max-width: 991px) {
           #girisyapp button {
@@ -255,7 +240,7 @@
             border-radius: 5px;
           }
         }
-      </style>
+      </style> -->
       <div
         class="modal-footer d-flex justify-content-center pt-4"
         style="border: 0px; background: #ddd"
@@ -304,8 +289,19 @@ export default {
   },
   methods: {
     ...mapActions({
-      register: 'register'
+      register: 'register',
     }),
+    kaydol() {
+      this.register({
+        email: this.email,
+        password: this.password,
+        name: this.name + ' ' + this.surname,
+        phone: this.phone,
+        gender: this.gender,
+        tanitimOnayi: this.tanitimOnayi,
+        sozlesmeOnayi: this.sozlesmeOnayi,
+      })
+    },
   },
 }
 </script>

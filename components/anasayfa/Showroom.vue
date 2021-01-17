@@ -67,6 +67,7 @@ export default {
   data() {
     return {
       carouselIndex: 0,
+      carouselIndexChanging: false,
     }
   },
   computed: {
@@ -85,9 +86,20 @@ export default {
         this.carouselIndex = this.showRoomProducts.length - 1
       } else this.carouselIndex += count
     },
+    indexDegisimi() {
+      setInterval(
+        function () {
+          this.carouselIndexChanging = true
+          setTimeout(() => (this.carouselIndexChanging = false), 750)
+          this.changeIndex(1)
+        }.bind(this),
+        5000
+      )
+    },
   },
   created() {
-    this.fetchShowRoomProducts()
+    this.fetchShowRoomProducts();
+    this.indexDegisimi();
   },
 }
 </script>

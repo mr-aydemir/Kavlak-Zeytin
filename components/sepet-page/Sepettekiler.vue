@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div v-if="productLength > 1">
-      <div id="ctl00_ContentPlaceHolder1_PnlSepetBos" v-if="inCart.length < 1">
+    <div >
+      <div id="ctl00_ContentPlaceHolder1_PnlSepetBos" v-if="inCartLength < 1||productLength < 1">
         <div class="container">
           <div class="row">
             <div
@@ -414,7 +414,7 @@
                         <!--3/col-lg-4 Bitiş-->
                       </div>
                     </div>
-                    <style type="text/css">
+                    <!-- <style type="text/css">
                       @media only screen and (max-width: 992px) {
                         #fixedbutonodeme .btn-mobilitem {
                           display: block !important;
@@ -424,7 +424,7 @@
                           stroke-width: 445%;
                         }
                       }
-                    </style>
+                    </style> -->
                     <div id="fixedbutonodeme">
                       <input
                         type="submit"
@@ -455,26 +455,16 @@
         </section>
       </div>
     </div>
-    <div class="deneme" v-else>
-      <img
-        src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/source.gif"
-        alt="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/source.gif"
-      />
-    </div>
   </div>
 </template>
 <script>
-import SepetteIndirimliler from '@/components/sepet-page/SepetteIndirimliler'
-import SepetProductButton from '@/components/sepet-page/SepetProductButton'
+import SepetteIndirimliler from './SepetteIndirimliler'
+import SepetProductButton from './SepetProductButton'
 import { mapActions, mapGetters, mapState } from 'vuex'
 export default {
   components: {
     SepetteIndirimliler,
     SepetProductButton,
-  },
-  created() {
-    this.fetchProducts()
-    this.fetchCartItems()
   },
   methods: {
     ...mapActions({
@@ -495,6 +485,9 @@ export default {
     productLength() {
       return this.products != null ? this.products.length : -1
     },
+    inCartLength(){
+      return this.inCart? this.inCart.length :-1
+    }
   },
 }
 </script>

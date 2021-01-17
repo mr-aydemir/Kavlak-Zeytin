@@ -1,4 +1,4 @@
-import { realDb, auth } from '~/plugins/firebase.js';
+import { realDb, auth } from '../plugins/firebase.js';
 import firebase from "firebase";
 
 export const state = () => ({
@@ -9,7 +9,8 @@ export const state = () => ({
     sepetteIndirimliler: [],
     indirimliler: [],
     showRoomProducts: [],
-    categoriesBarItems: []
+    categoriesBarItems: [],
+    testCount: 0
 })
 
 
@@ -22,7 +23,7 @@ export const getters = {
     getCategoryWithId: (state) => (id) => {
         return state.categories.find(item => item.id === id)
     },
-    formatPrice: (state) => (value) => {
+    formatPrice: () => (value) => {
         let val = (value / 1).toFixed(2).replace(".", ",");
         return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     },
@@ -251,76 +252,81 @@ export const actions = {
     },
     register({ }, payload) {
         if (payload.sozlesmeOnayi) {
-            firebase
-                .auth()
-                .createUserWithEmailAndPassword(payload.email, payload.password)
-                .then(
-                    userCredential => {
-                        // Kayıt işlemi sadece email ve şifre ile oluşturuluyor, baştan isim ve numara ekleyemiyoruz.
-                        alert("Hesap " + payload.email + " başarıyla oluşturuldu");
-                        // Email ve şifre ile kullanıcı oluşturduktan sonra hesabın isim ve numarasını güncelliyoruz.
-                        var kullanici = firebase.auth().currentUser;
-                        alert("Kullanıcıya giriş yapıldı");
-                        kullanici.updateProfile({
-                            displayName: payload.name,
-                            phoneNumber: payload.phone
-                        });
-                        alert("İsim " + payload.name + " güncellendi");
-                        alert("Telefon " + payload.phone + " güncellendi");
-                        var newUser = userCredential.user
-                        alert("oluşturulan kullanıcı idsi: " + newUser.uid)
+            return new Promise((resolve, reject) => {
+                firebase
+                    .auth()
+                    .createUserWithEmailAndPassword(payload.email, payload.password)
+                    .then(
+                        userCredential => {
+                            console.log("Kayıt başarılı");
+                            // Kayıt işlemi sadece email ve şifre ile oluşturuluyor, baştan isim ve numara ekleyemiyoruz.
+                            alert("Hesap " + payload.email + " başarıyla oluşturuldu");
+                            // Email ve şifre ile kullanıcı oluşturduktan sonra hesabın isim ve numarasını güncelliyoruz.
+                            var kullanici = firebase.auth().currentUser;
+                            alert("Kullanıcıya giriş yapıldı");
+                            kullanici.updateProfile({
+                                displayName: payload.name,
+                                phoneNumber: payload.phone
+                            });
+                            alert("İsim " + payload.name + " güncellendi");
+                            alert("Telefon " + payload.phone + " güncellendi");
+                            var newUser = userCredential.user
+                            alert("oluşturulan kullanıcı idsi: " + newUser.uid)
 
-                        var ref = realDb.ref("usersData/" + newUser.uid)//.set(userData)
-                        var uData = {
-                            adresses: null,
-                            birthDay: "01-01-1998",
-                            couponsId: null,
-                            favoriteProducts: null,
-                            gender: 0,
-                            getSpecialOfferMessage: true,
-                            id: newUser.uid,
-                            inCart: null,
-                            messages: null,
-                            ordersId: null,
-                            gender: payload.gender,
-                            tanitimOnayi: payload.tanitimOnayi,
-                            sozlesmeOnayi: payload.sozlesmeOnayi,
+                            var ref = realDb.ref("usersData/" + newUser.uid)//.set(userData)
+                            var uData = {
+                                adresses: null,
+                                birthDay: "01-01-1998",
+                                couponsId: null,
+                                favoriteProducts: null,
+                                gender: 0,
+                                getSpecialOfferMessage: true,
+                                id: newUser.uid,
+                                inCart: null,
+                                messages: null,
+                                ordersId: null,
+                                gender: payload.gender,
+                                tanitimOnayi: payload.tanitimOnayi,
+                                sozlesmeOnayi: payload.sozlesmeOnayi,
+                            }
+                            alert("Kullanıcı verisi Realtime'a kaydedildi")
+                            ref.set(uData);
+                            //payload.$router.push("/"); 
+                            location.reload();
+                            resolve();
+                        },
+                        err => {
+                            alert(err.message);
+                            reject();
                         }
-                        alert("Kullanıcı verisi Realtime'a kaydedildi")
-                        ref.set(uData);
-                        //payload.$router.push("/"); 
-                        location.reload();
-                    },
-                    err => {
-                        alert(err.message);
-                    }
-                ).then(
-
-                );
+                    )
+            })
         } else {
             alert("Sözleşmeyi onaylamanız gerekmektedir.")
         }
     },
     login({ }, payload) {
-        console.log("login çalıştı.")
-        console.log(payload.email)
-        try {
+        return new Promise((resolve, reject) => {
+            console.log("login çalıştı.")
+            console.log(payload.email)
             firebase
                 .auth()
                 .signInWithEmailAndPassword(payload.email, payload.password)
                 .then(
                     user => {
                         alert(payload.email + " ile giriş yaptınız");
+                        console.log("Giriş başarılı");
                         //this.$router.push("/");
                         location.reload();
+                        resolve();
                     },
                     err => {
                         alert(err.message);
+                        reject();
                     }
                 );
-        } catch (error) {
-            console.log(error)
-        }
+            reject();
+        });
     },
 }
 
@@ -360,5 +366,6 @@ export const mutations = {
         var arr = JSON.parse(localSepet ? localSepet : "[]");
         arr.push(newitem)
         localStorage.inCart = JSON.stringify(arr)
-    }
+    },  
+    incrementTest: (state,count) => state.testCount+=count
 }

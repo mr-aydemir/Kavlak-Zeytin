@@ -285,7 +285,7 @@
                     id="kasaurunsayisi"
                     style="z-index: 999"
                   >
-                    {{ inCart.length ? inCart.length : 0 }}
+                    {{ inCartLength>0?inCartLength:0 }}
                   </span></nuxt-link
                 >
               </li>
@@ -337,7 +337,7 @@
             class="float-right text-white tlcover pl-5 pr-3 font-weight-bold"
           >
             <span class="h6">
-              {{ inCart.length&&products.length ? formatPrice(getCartTotalCost()) : 0 }} TL</span
+              {{ inCartLength&&productLength ? formatPrice(getCartTotalCost()) : 0 }} TL</span
             >
           </div>
         </nuxt-link>
@@ -365,12 +365,11 @@ export default {
         user.phoneNumber
       } else this.isLoggedIn = false
     })
-    this.fetchCartItems()
+    //this.fetchCartItems()
   },
   methods: {
     ...mapActions({
       logout: 'logout',
-      fetchCartItems: 'fetchCartItems',
     }),
   },
   computed: {
@@ -385,6 +384,9 @@ export default {
     productLength() {
       return this.products != null ? this.products.length : -1
     },
+    inCartLength(){
+      return this.inCart? this.inCart.length :-1
+    }
   },
 }
 </script>

@@ -96,14 +96,14 @@
           <!--div class="md-form başla-->
           <div class="md-form text-center pt-3">
             <!--btn FACEBOOK başla-->
-            <input
-              type="submit"
-              name="ctl00$ContentPlaceHolder1$btn_uye_girisi"
-              value="Giriş Yap"
-              id="ctl00_ContentPlaceHolder1_btn_uye_girisi"
+            <button
+              name="btnLogin"
               class="btnLogin btn btn02A54A text-center btnwidth90 py-2 text-capitalize"
-              style="font-size: 35px; font-weight: 600" @click="login({ email, password })"
-            /><br />
+              style="font-size: 35px; font-weight: 600"
+              @click="girisYap()"
+            >
+              Giriş Yap</button
+            ><br />
             <!-- -->
           </div>
           <!--div class="md-form başla-->
@@ -158,8 +158,11 @@ export default {
   },
   methods: {
     ...mapActions({
-      login: 'login'
+      login: 'login',
     }),
+    girisYap() {
+      this.login({ email: this.email, password: this.password })
+    },
   },
 }
 </script>

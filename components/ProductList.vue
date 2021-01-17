@@ -36,19 +36,16 @@ export default {
       getProductsWithCategory: 'getProductsWithCategory',
     }),
     getFilteredProductList(){
-      if (this.categoryID) {
+      if (this.categoryID!=''&&this.categoryID!=undefined) {
         return this.getProductsWithCategory(this.categoryID)
       }
       return this.products;
     }
   },
   methods: {
-    ...mapActions({
-      fetchProducts: 'fetchProducts',
-    }),
   },
   created() {
-    this.fetchProducts()
+    console.log(this.categoryID);
   },
 }
 </script>
