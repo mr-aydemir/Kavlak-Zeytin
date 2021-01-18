@@ -27,8 +27,8 @@ export const getters = {
         let val = (value / 1).toFixed(2).replace(".", ",");
         return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     },
-    getProductsWithCategory: (state) => (categoryID) => {
-        return categoryID ? state.products.filter(item => item.categoryID === categoryID) : state.products
+    getProductsWithCategory: (state) => (categoryName) => {
+        return categoryName ? state.products.filter(item => item.categoryID === state.categories.find(item => item.name === categoryName).id) : state.products
     },
     getCartItemWithID: (state) => (id) => {
         return state.inCart.find(item => item.id == id)
@@ -79,12 +79,7 @@ export const getters = {
 
 
 export const actions = {
-    setUser({ commit }, item) {
-        commit('setUser', item)
-    },
-    sepeteEkle({ commit }, item) {
-        commit('sepeteEkle', item)
-    },
+
     fetchSepetteIndirimliler({ commit }) {
         var ref = realDb.ref('sepetteIndirimliler')
         ref.once('value').then(function (snapshot) {
@@ -126,8 +121,6 @@ export const actions = {
                 arr = Object.entries(snapshot.val()).map(e => Object.assign(e[1], { key: e[0] }))
             }
             commit('setShowRoomProducts', arr)
-            //console.log(arr)
-
         });
     },
     fetchCategoriesBarItems({ commit, dispatch }) {
@@ -139,37 +132,33 @@ export const actions = {
                 arr = Object.entries(snapshot.val()).map(e => Object.assign(e[1], { key: e[0] }))
             }
             commit('setCategoriesBarItems', arr)
-            //console.log(arr)
-
         });
     },
     async fetchCartItems({ commit, state }) {
         var kullanici = firebase.auth().currentUser
-        var delay = !kullanici ? 500 : 0
-        console.log("delay: " + delay)
+        var delay = !kullanici ? 1000 : 0
         let arr = []
+        const storage = (process.env.VUE_ENV === 'server') ? null : window.localStorage
+        var localSepet = storage ? storage.inCart : "[]";
+        var localArr = await JSON.parse(localSepet ? localSepet : "[]");
         setTimeout(function () {
             new Promise(resolve => {
                 kullanici = firebase.auth().currentUser
                 commit('setUser', kullanici)
                 resolve(true)
-                console.log(kullanici ? kullanici.uid : "boşşş")
                 var ref = realDb.ref("usersData/" + kullanici.uid + "/inCart")
-                ref.once('value').then(function (snapshot) {
-                    if (snapshot.val() != null) {
-                        arr = Object.entries(snapshot.val()).map(e => Object.assign(e[1], { key: e[0] }))
-                    }
-                    commit('setInCart', arr)
-                });
+                if (kullanici) {
+                    ref.once('value').then(function (snapshot) {
+                        if (snapshot.val() != null) {
+                            arr = Object.entries(snapshot.val()).map(e => Object.assign(e[1], { key: e[0] }))
+                        }
+                        commit('setInCart', arr)
+                    });
+                    return;
+                }
             })
         }, delay)
-        if (!kullanici) {
-            const storage = (process.env.VUE_ENV === 'server') ? null : window.localStorage
-            var localSepet = storage ? storage.inCart : "[]";
-
-            arr = await JSON.parse(localSepet ? localSepet : "[]");
-            commit('setInCart', arr)
-        }
+        commit('setInCart', localArr)
     },
     deleteCart({ state, dispatch }, id) {
         var kullanici = firebase.auth().currentUser
@@ -251,58 +240,66 @@ export const actions = {
         }
     },
     register({ }, payload) {
-        if (payload.sozlesmeOnayi) {
-            return new Promise((resolve, reject) => {
-                firebase
-                    .auth()
-                    .createUserWithEmailAndPassword(payload.email, payload.password)
-                    .then(
-                        userCredential => {
-                            console.log("Kayıt başarılı");
-                            // Kayıt işlemi sadece email ve şifre ile oluşturuluyor, baştan isim ve numara ekleyemiyoruz.
-                            alert("Hesap " + payload.email + " başarıyla oluşturuldu");
-                            // Email ve şifre ile kullanıcı oluşturduktan sonra hesabın isim ve numarasını güncelliyoruz.
-                            var kullanici = firebase.auth().currentUser;
-                            alert("Kullanıcıya giriş yapıldı");
-                            kullanici.updateProfile({
-                                displayName: payload.name,
-                                phoneNumber: payload.phone
-                            });
-                            alert("İsim " + payload.name + " güncellendi");
-                            alert("Telefon " + payload.phone + " güncellendi");
-                            var newUser = userCredential.user
-                            alert("oluşturulan kullanıcı idsi: " + newUser.uid)
+        if (payload.password == payload.password2) {
+            if (payload.name != "" && payload.name != "" && payload.email != "" && payload.phone != "" && payload.password != "" && payload.password2 != "") {
+                if (payload.sozlesmeOnayi) {
+                    return new Promise((resolve, reject) => {
+                        firebase
+                            .auth()
+                            .createUserWithEmailAndPassword(payload.email, payload.password)
+                            .then(
+                                userCredential => {
+                                    console.log("Kayıt başarılı");
+                                    // Kayıt işlemi sadece email ve şifre ile oluşturuluyor, baştan isim ve numara ekleyemiyoruz.
+                                    alert("Hesap " + payload.email + " başarıyla oluşturuldu");
+                                    // Email ve şifre ile kullanıcı oluşturduktan sonra hesabın isim ve numarasını güncelliyoruz.
+                                    var kullanici = firebase.auth().currentUser;
+                                    alert("Kullanıcıya giriş yapıldı");
+                                    kullanici.updateProfile({
+                                        displayName: payload.name,
+                                        phoneNumber: payload.phone
+                                    });
+                                    alert("İsim " + payload.name + " güncellendi");
+                                    alert("Telefon " + payload.phone + " güncellendi");
+                                    var newUser = userCredential.user
+                                    alert("oluşturulan kullanıcı idsi: " + newUser.uid)
 
-                            var ref = realDb.ref("usersData/" + newUser.uid)//.set(userData)
-                            var uData = {
-                                adresses: null,
-                                birthDay: "01-01-1998",
-                                couponsId: null,
-                                favoriteProducts: null,
-                                gender: 0,
-                                getSpecialOfferMessage: true,
-                                id: newUser.uid,
-                                inCart: null,
-                                messages: null,
-                                ordersId: null,
-                                gender: payload.gender,
-                                tanitimOnayi: payload.tanitimOnayi,
-                                sozlesmeOnayi: payload.sozlesmeOnayi,
-                            }
-                            alert("Kullanıcı verisi Realtime'a kaydedildi")
-                            ref.set(uData);
-                            //payload.$router.push("/"); 
-                            location.reload();
-                            resolve();
-                        },
-                        err => {
-                            alert(err.message);
-                            reject();
-                        }
-                    )
-            })
+                                    var ref = realDb.ref("usersData/" + newUser.uid)//.set(userData)
+                                    var uData = {
+                                        adresses: null,
+                                        birthDay: "01-01-1998",
+                                        couponsId: null,
+                                        favoriteProducts: null,
+                                        gender: 0,
+                                        getSpecialOfferMessage: true,
+                                        id: newUser.uid,
+                                        inCart: null,
+                                        messages: null,
+                                        ordersId: null,
+                                        gender: payload.gender,
+                                        tanitimOnayi: payload.tanitimOnayi,
+                                        sozlesmeOnayi: payload.sozlesmeOnayi,
+                                    }
+                                    alert("Kullanıcı verisi Realtime'a kaydedildi")
+                                    ref.set(uData);
+                                    //payload.$router.push("/"); 
+                                    location.reload();
+                                    resolve();
+                                },
+                                err => {
+                                    alert(err.message);
+                                    reject();
+                                }
+                            )
+                    })
+                }
+                else alert("Sözleşmeyi onaylamanız gerekmektedir.");
+            } else {
+                alert("Yıldızlı alanları doldurmayı unutmayın!");
+            }
+
         } else {
-            alert("Sözleşmeyi onaylamanız gerekmektedir.")
+            alert("Şifreler uyuşmuyor.");
         }
     },
     login({ }, payload) {
@@ -345,7 +342,6 @@ export const mutations = {
         state.sepetteIndirimliler = array
         var arr = []
         array.forEach((el) => {
-            console.log(el.id)
             arr.push(state.products.find((item) => item.id === el.id.toString()))
         })
         state.indirimliler = arr;
@@ -366,6 +362,6 @@ export const mutations = {
         var arr = JSON.parse(localSepet ? localSepet : "[]");
         arr.push(newitem)
         localStorage.inCart = JSON.stringify(arr)
-    },  
-    incrementTest: (state,count) => state.testCount+=count
+    },
+    incrementTest: (state, count) => state.testCount += count
 }

@@ -4,7 +4,7 @@ import Vuex from "vuex"
 import { getters } from "../../store";
 
 
-describe("ComponentWithVuex", () => {
+describe("Verilen kategori ve kategoribar arraylerinin listelenmesi", () => {
     let wrapper;
     const localVue = createLocalVue()
     localVue.use(Vuex)
@@ -139,7 +139,7 @@ describe("ComponentWithVuex", () => {
             NuxtLink: RouterLinkStub
         }, store, localVue
     })
-    describe("Kategor barındakiler", () => {
+    describe("Listelenmesi gereken başlıklar", () => {
 
         it("Zeytin", () => {
             expect(wrapper.text()).toContain("Zeytin");

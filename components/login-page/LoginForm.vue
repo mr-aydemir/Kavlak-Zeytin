@@ -126,7 +126,7 @@
               type="button"
               class="btnLogin22 btnblack text-center btnwidth90 py-2 text-capitalize"
               style="font-size: 35px; font-weight: 600"
-              onclick="window.location.href='/kayit-ol'"
+              @click="$router.push({ name: 'kayit-ol' })"
             >
               Üye Ol
             </button>

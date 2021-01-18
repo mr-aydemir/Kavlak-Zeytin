@@ -1777,3 +1777,7 @@ input[type='number'] {
   position: relative;
   margin: auto;
 }
+.disabled {
+  cursor: not-allowed;
+  color: gray
+}

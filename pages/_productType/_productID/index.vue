@@ -12,10 +12,12 @@ export default {
   methods: {
     ...mapActions({
       fetchProducts: 'fetchProducts',
+      fetchCartItems:'fetchCartItems'
     }),
   },
   created() {
-    this.fetchProducts()
+    this.fetchProducts(),
+    this.fetchCartItems();
   },
   data() {
     return {

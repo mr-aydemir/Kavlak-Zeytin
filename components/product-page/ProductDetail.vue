@@ -121,11 +121,11 @@
           >
           <div class="rating">
             <div class="stars">
-              <span class="fas fa-star size20" style="color: gold"
-                ><span class="fas fa-star size20" style="color: gold"
-                  ><span class="fas fa-star size20" style="color: gold"
-                    ><span class="fas fa-star size20" style="color: gold"
-                      ><span class="fas fa-star size20" style="color: gold">
+              <span class="fas fa-star size20" style="color: gold" v-if="getProductWithId(productID).rate>0"
+                ><span class="fas fa-star size20" style="color: gold" v-if="getProductWithId(productID).rate>1"
+                  ><span class="fas fa-star size20" style="color: gold" v-if="getProductWithId(productID).rate>2"
+                    ><span class="fas fa-star size20" style="color: gold" v-if="getProductWithId(productID).rate>3"
+                      ><span class="fas fa-star size20" style="color: gold" v-if="getProductWithId(productID).rate>4"> 
                       </span></span></span></span
               ></span>
             </div>
@@ -305,7 +305,7 @@ export default {
     return {
       imageIndex: 0,
       dt: moment(moment(), 'YYYY-MM-DD HH:mm:ss'),
-      count:1
+      count: 1,
     }
   },
   mounted() {

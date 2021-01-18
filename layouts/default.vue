@@ -1,7 +1,7 @@
 <template>
   <div>
     <HeadContainer />
-    <Showroom v-if="this.$route.name=='index'"/>
+    <Showroom v-if="this.$route.name=='index'||this.$route.name=='productType'"/>
     <HeadCategoriesBar />
     <HeadKampanyalarBar />
     <Nuxt />
@@ -28,6 +28,7 @@ export default {
     this.fetchProducts();
     this.fetchCartItems();
     this.fetchCategoriesBarItems()
+    
   },
   methods: {
     ...mapActions({

@@ -15,13 +15,16 @@ config.mocks["$store"] = {
     }
 };
 
-describe("HeadContainer.vue", () => {
-    it("Kullanıcı girişi yapılmadığında, Üye Ol ve Giriş Yap butonlarının gözükmesi", () => {
-        let wrapper = mount(HeadContainer, {
-            stubs: {
-                NuxtLink: RouterLinkStub
-            }
-        });
+describe("Kullanıcı girişi yapılmadığında, Üye Ol ve Giriş Yap butonlarının gözükmesi", () => {
+    let wrapper = mount(HeadContainer, {
+        stubs: {
+            NuxtLink: RouterLinkStub
+        }
+    });
+    it("Üye Ol", () => {
         expect(wrapper.text()).toContain("Üye Ol");
+    });
+    it("Giriş yap", () => {
+        expect(wrapper.text()).toContain("Giriş yap");
     });
 });

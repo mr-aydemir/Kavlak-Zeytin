@@ -1,5 +1,5 @@
 <template>
-  <ProductList :categoryID="CategoryID"/>
+  <ProductList :categoryName="CategoryName"/>
 </template>
 <script>
 import ProductList from '@/components/ProductList'
@@ -8,11 +8,11 @@ export default {
     ProductList,
   },
   mounted() {
-    console.log('route: ' + this.$route.name)
+    console.log('route: ' + this.$route.params.productType)
   },
   data() {
     return {
-      CategoryID: this.$route.params.productType,
+      CategoryName: this.$route.params.productType,
     }
   },
 }

@@ -183,17 +183,27 @@
             <li
               class="nav-item dropdown p0 m0"
               :id="'navedit' + item.name"
-              v-for="(item,index) in categoriesBarItems"
+              v-for="(item, index) in categoriesBarItems"
               :key="item.id"
-                @mouseenter="OpenDropdown($event,index)"
-                @mouseleave="CloseDropdown"
+              @mouseenter="OpenDropdown($event, index)"
+              @mouseleave="CloseDropdown"
             >
-              <a
+              <nuxt-link
+                  :to="!item.subCategories?{
+                    name: 'productType',
+                    params: {
+                      productType: getCategoryWithId(item.categoryID).name,
+                    },
+                  }:''"
                 class="nav-link"
                 id="zeytindropdown"
-                :class="{ 'dropdown-toggle': item.subCategories }"
+                :class="{
+                  'dropdown-toggle': item.subCategories,
+                  disabled: item.subCategories,
+                }"
                 aria-haspopup="true"
                 aria-expanded="true"
+                :href="!item.subCategories ? item.name : ''"
               >
                 <div class="row">
                   <div class="col-lg-3">
@@ -210,20 +220,25 @@
                     >
                   </div>
                 </div>
-              </a>
+              </nuxt-link>
               <!--DESK RESPO. -->
               <div
                 v-if="item.subCategories"
-                :class="{ 'show': index==mouseOveredIndex }"
+                :class="{ show: index == mouseOveredIndex }"
                 class="dropdown-menu dropdown-menu-right myitems"
                 aria-labelledby="zeytindropdown"
               >
-                <a
+                <nuxt-link
+                  :to="{
+                    name: 'productType',
+                    params: {
+                      productType: getCategoryWithId(sub.id).name,
+                    },
+                  }"
                   class="dropdown-item font-weight-bold text-white"
-                  :href="'/' + getCategoryWithId(sub.id).name"
                   v-for="sub in item.subCategories"
                   :key="sub.id"
-                  >{{ getCategoryWithId(sub.id).name }}</a
+                  >{{ getCategoryWithId(sub.id).name }}</nuxt-link
                 >
               </div>
             </li>
@@ -268,26 +283,26 @@
 <script>
 import { mapActions, mapState, mapGetters } from 'vuex'
 export default {
-  data(){
-    return{
-      mouseOveredIndex:-1
+  data() {
+    return {
+      mouseOveredIndex: -1,
     }
   },
   methods: {
-    OpenDropdown(event,index) {
+    OpenDropdown(event, index) {
       var Target = event.target
       Target.classList.add('show')
-      this.mouseOveredIndex=index
+      this.mouseOveredIndex = index
     },
     CloseDropdown(event) {
       var Target = event.target
       Target.classList.remove('show')
-      this.mouseOveredIndex=-1
+      this.mouseOveredIndex = -1
     },
     parentContainsShow(event) {
       var Target = event.target
       console.log(Target.parentElement.classList)
-      return Target.parentElement.classList.contains('show')==true
+      return Target.parentElement.classList.contains('show') == true
     },
   },
   computed: {

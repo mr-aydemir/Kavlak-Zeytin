@@ -16,14 +16,14 @@
 </template>
 
 <script>
-import ProductButton from '@/components/buttons/ProductButton'
+import ProductButton from '../components/buttons/ProductButton'
 import { mapActions, mapGetters,mapState } from 'vuex'
 export default {
   components: {
     ProductButton,
   },
   props: {
-    categoryID: {
+    categoryName: {
       type: String,
       required: true,
     },
@@ -36,16 +36,11 @@ export default {
       getProductsWithCategory: 'getProductsWithCategory',
     }),
     getFilteredProductList(){
-      if (this.categoryID!=''&&this.categoryID!=undefined) {
-        return this.getProductsWithCategory(this.categoryID)
+      if (this.categoryName!=''&&this.categoryName!=undefined) {
+        return this.getProductsWithCategory(this.categoryName)
       }
       return this.products;
     }
-  },
-  methods: {
-  },
-  created() {
-    console.log(this.categoryID);
-  },
+  }
 }
 </script>

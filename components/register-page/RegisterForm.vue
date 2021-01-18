@@ -222,10 +222,12 @@
               style="color: Red"
             ></span>
             <button
-              class=" Kbtn btnblack btn text-center btnwidth90 py-3 waves-effect Helvatica size35"
+              class="Kbtn btnblack btn text-center btnwidth90 py-3 waves-effect Helvatica size35"
               style="font-weight: 600"
               @click="kaydol()"
-            >ÜYE OL</button>
+            >
+              ÜYE OL
+            </button>
           </div>
         </div>
         <!--UYE OL btn bitiş-->
@@ -251,7 +253,7 @@
         <div class="pl-4 ml-5" id="girisyapp">
           <button
             class="btn btn02A54A rounded Helvatica float-right ml-5"
-            onclick="window.location.href='/Giris/Uye'"
+            @click="$router.push({ name: 'Giris-Uye' })"
           >
             GİRİŞ YAP
           </button>
@@ -295,6 +297,7 @@ export default {
       this.register({
         email: this.email,
         password: this.password,
+        password2: this.password2,
         name: this.name + ' ' + this.surname,
         phone: this.phone,
         gender: this.gender,

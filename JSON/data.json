@@ -153,6 +153,133 @@
             ],
             "inStock": 500,
             "indirim": 0
+        },
+        {
+            "id": "kavlak-domat-kirma-yesil-zeytin-1-kg",
+            "categoryID": 4,
+            "name": "Kavlak Domat Kırma Yeşil Zeytin 1 Kg",
+            "detail": "Domat tipinin özelliğinden dolayı çok lezzetli bir yeşil zeytin çeşididir.",
+            "rate": 3,
+            "price": 39.90,
+            "code": "261",
+            "images": [
+                "https://kavlak.com.tr/zeytinler/kavlak-domat-kirma-yesil-zeytin-1kg.jpg"
+            ],
+            "inStock": 500,
+            "indirim": 0
+        },
+        {
+            "id": "kavlak-biberli-yesil-zeytin-1-kg",
+            "categoryID": 4,
+            "name": "Kavlak Biberli Yeşil Zeytin 1 Kg",
+            "detail": "Domat tipi yeşil zeytinlerden üretilen Kavlak biberli yeşil zeytin lezzet garantisi ile kahvaltıların vazgeçilmezleri arasında yer alıyor.",
+            "rate": 5,
+            "price": 44.90,
+            "code": "042",
+            "images": [
+                "https://kavlak.com.tr/zeytinler/kavlak-biberli-yesil-zeytin-1kg.jpg",
+                "https://kavlak.com.tr/zeytinler/kavlak-biberli-yesil-zeytin-1kg-2.jpg"
+            ],
+            "inStock": 500,
+            "indirim": 0
+        },
+        {
+            "id": "avlak-eski-kasar-peyniri-1-kg",
+            "categoryID": 5,
+            "name": "Kavlak Eski Kaşar Peyniri 1 Kg",
+            "detail": "Eski Kaşar Peyniri olarak da bilinen bu ürün, orta tuzlu seven damaklara hitap eden özel bir peynirdir.",
+            "rate": 5,
+            "price": 79.90,
+            "code": "269",
+            "images": [
+                "https://kavlak.com.tr/sarkuteriler/kavlak-eski-kasar-peyniri-1kg.jpg"
+            ],
+            "inStock": 500,
+            "indirim": 0
+        },
+        {
+            "id": "kavlak-cilek-receli-400-gr",
+            "categoryID": 6,
+            "name": "Kavlak Çilek Reçeli 400 Gr",
+            "detail": "1. Sınıf doğal Çilek meyvesinden ve 100 gramda 45 gram meyve ile üretilmiştir. İçeriğinde gıda boyası ve koruyucu katkı maddesi içermez.",
+            "rate": 5,
+            "price": 29.90,
+            "code": "068",
+            "images": [
+                "https://kavlak.com.tr/sarkuteriler/kavlak-cilek-receli-400gr.jpg"
+            ],
+            "inStock": 500,
+            "indirim": 0
+        },
+        {
+            "id": "kavlak-kasap-sucuk-800-gr",
+            "categoryID": 7,
+            "name": "Kavlak Kasap Sucuk 800 Gr",
+            "detail": "Baharat oranı ve sarımsağı en aza indirilmiş Kavlak Kasap Sucuğu midenizde yanma yapmaz. %100 dana etinden yapılmaktadır.",
+            "rate": 5,
+            "price": 74.90,
+            "code": "033",
+            "images": [
+                "https://kavlak.com.tr/sarkuteriler/kavlak-kasap-sucuk-800gr.jpg"
+            ],
+            "inStock": 500,
+            "indirim": 0
+        },
+        {
+            "id": "kavlak-zeytin-cicegi-kolonyasi-55-ml-sprey-sise",
+            "categoryID": 8,
+            "name": "Kavlak Zeytin Çiçeği Kolonyası 55 Ml (Sprey Şişe)",
+            "detail": "İçeriğindeki zeytin çiçeği özü sayesinde mantar ve egzama tedavisinde kullanılmakla birlikte koku ve ağrı giderici özelliğe sahiptir.",
+            "rate": 5,
+            "price": 12.90,
+            "code": "219",
+            "images": [
+                "https://kavlak.com.tr/kozmetikler/kavlak-zeytin-cicegi-kolonyasi-55ml-sprey-sise.jpg"
+            ],
+            "inStock": 500,
+            "indirim": 0
+        },
+        {
+            "id": "kavlak-kutu-special-kestane-sekeri-450-gr",
+            "categoryID": 10,
+            "name": "Kavlak Kutu Special Kestane Şekeri 450 Gr",
+            "detail": "Kestane Şekeri, içerdiği vitamin ve mineraller ile kış mevsiminin olumsuz şartlarına, fiziksel ve zihinsel yorgunluklara karşı eşsiz şifa kaynağıdır.",
+            "rate": 5,
+            "price": 69.90,
+            "code": "TDR184",
+            "images": [
+                "https://kavlak.com.tr/tatli/kavlak-kutu-special-kestane-sekeri-450gr.jpg"
+            ],
+            "inStock": 500,
+            "indirim": 0
+        },
+        {
+            "id": "kavlak-antep-fistigi-500-gr",
+            "categoryID": 11,
+            "name": "Kavlak Antep Fıstığı 500 Gr",
+            "detail": "Kavlak kalitesiyle kuruyemiş çeşitlerimiz ilk günkü tazeliğiyle ve lezzetiyle kapınıza kadar geliyor.",
+            "rate": 5,
+            "price": 109.90,
+            "code": "TDC1008",
+            "images": [
+                "https://kavlak.com.tr/cerezler/kavlak-antep-fistigi-500-gr.jpg"
+            ],
+            "inStock": 500,
+            "indirim": 0
+        },
+        {
+            "id": "kavlak-turlu-tursusu-1800-gr",
+            "categoryID": 9,
+            "name": "Kavlak Türlü Turşusu 1800 Gr",
+            "detail": "Dünyaca ünlü Gedelek Köyü turşuları Kavlak kalitesi ile sofralarınıza lezzet katacak.",
+            "rate": 5,
+            "price": 32.90,
+            "code": "499",
+            "images": [
+                "https://kavlak.com.tr/tursu/kavlak-turlu-tursusu-1800-gr.jpg"
+            ],
+            "inStock": 500,
+            "indirim": 0
         }
     ],
     "categories": [
@@ -296,14 +423,14 @@
         {
             "id": 6,
             "name": "Şekerleme",
-            "categoryID":10,
+            "categoryID": 10,
             "icon": "https://kavlak.com.tr/img/icon/seker.png"
         },
         {
             "id": 7,
-            "categoryID":11,
+            "categoryID": 11,
             "name": "Kuruyemiş",
-            "icon":"https://kavlak.com.tr/img/icon/kuruyemis.png"
+            "icon": "https://kavlak.com.tr/img/icon/kuruyemis.png"
         }
     ]
 }
